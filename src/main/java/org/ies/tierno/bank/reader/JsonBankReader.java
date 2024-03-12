@@ -6,10 +6,12 @@ import org.ies.tierno.bank.model.Bank;
 import java.io.File;
 
 public class JsonBankReader implements Reader<Bank> {
+
     @Override
     public Bank read() {
         ObjectMapper om = new ObjectMapper();
         try {
+            // Esto es un comentario
             Bank bank = om
                     .readValue(
                             new File(getClass().getResource("/data.json").toURI()),
