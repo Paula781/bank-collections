@@ -1,0 +1,34 @@
+{
+  "name": "Banco de Orcasur",
+  "accountsByIban": {
+    "ES001": {
+      "iban": "ES001",
+      "nif": "1X",
+      "balance": 50000
+    },
+    "ES002": {
+      "iban": "ES002",
+      "nif": "1X",
+      "balance": 20000
+    },
+    "ES003": {
+      "iban": "ES003",
+      "nif": "2X",
+      "balance": 2000
+    }
+  },
+  "customers": [
+    {
+      "nif": "1X",
+      "name": "Bob",
+      "surname": "Esponja",
+      "zipCode": 28000
+    },
+    {
+      "nif": "2X",
+      "name": "George",
+      "surname": "Pig",
+      "zipCode": 28001
+    }
+  ]
+}
