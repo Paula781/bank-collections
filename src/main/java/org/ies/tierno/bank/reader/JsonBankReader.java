@@ -11,7 +11,6 @@ public class JsonBankReader implements Reader<Bank> {
     public Bank read() {
         ObjectMapper om = new ObjectMapper();
         try {
-            // Esto es un comentario
             Bank bank = om
                     .readValue(
                             new File(getClass().getResource("/data.json").toURI()),
