@@ -16,19 +16,29 @@ public class Bank {
         this.accountsByIban = accountsByIban;
     }
 
+
+
+
 /*
     Dado un iban y una cantidad, ingresar la cantidad
     en la cuenta. Si no existe la cuenta devuelve null.
      */
 
-   /* public  Account addSaldo(String iban, double amount){
-        for (Customer customer: customers){
-           if ()
+    /*public  void addSaldo(String iban, double amount) {
+        Account account=findAccount(iban);
+        if (account !=null) {
+            for (var account: )
         }
-        return null;
     }
 
+    public  Account findAccount(String iban){
+        for (var account: accountsByIban){
+            if ()
+        }
+    }
     */
+
+
 
 
 
