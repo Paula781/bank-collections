@@ -1,8 +1,5 @@
 package org.ies.tierno.bank.model;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 public class Customer {
@@ -16,6 +13,10 @@ public class Customer {
         this.name = name;
         this.surname = surname;
         this.zipcode = zipcode;
+    }
+
+    public  Customer(){
+
     }
 
     public String getNif() {
