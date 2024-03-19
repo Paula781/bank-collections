@@ -13,9 +13,11 @@ private double saldo;
         this.saldo = saldo;
     }
 
-    public String getIban() {
+    /*public String getIban() {
         return iban;
     }
+
+     */
 
     public void setIban(String iban) {
         this.iban = iban;
