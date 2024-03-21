@@ -1,5 +1,6 @@
 package org.ies.tierno.bank.model;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Customer {
@@ -7,16 +8,22 @@ public class Customer {
     private String name;
     private String surname;
     private int zipcode;
+    private List<Account> accounts;
 
-    public Customer(String nif, String name, String surname, int zipcode) {
+    public Customer(String nif, String name, String surname, int zipcode, List<Account> accounts) {
         this.nif = nif;
         this.name = name;
         this.surname = surname;
         this.zipcode = zipcode;
+        this.accounts = accounts;
     }
 
     public  Customer(){
 
+    }
+
+    public List<Account> getAccounts(){
+        return accounts;
     }
 
     public String getNif() {

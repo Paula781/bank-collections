@@ -27,15 +27,11 @@ public class Bank {
     public  void addSaldo(String iban, double amount) {
         if (accountsByIban.containsKey(iban)){
             Account account=accountsByIban.get(iban);
-            account.setSaldo(account.getSaldo()+amount);
+            account.deposit(amount);
         }else{
             System.out.println("No existe la cuenta "+iban);
         }
     }
-
-
-
-
 
 
     /*
@@ -59,6 +55,15 @@ public class Bank {
 
 
 
+    public void takeCuantity(String iban, double amount){
+        if (accountsByIban.containsKey(iban)){
+            Account account=accountsByIban.get(iban);
+            account.withdraw(amount);
+        }else{
+            System.out.println("NO existe la cuenta "+iban);
+        }
+    }
+
     /*
     Realizar una transferencia entre dos cuentas de dos clientes.
      Para realizar la transferencia será necesario proporcionar la
@@ -72,17 +77,19 @@ public class Bank {
     vive en ese código postal
      */
 
-    /*public List<Account> findAccountsByZipcode(int zipcode){
+    //No me gusta, mirar si puedo hacerlo de otra forma :)
+
+    public List<Account> findAccountsByZipcode(int zipcode){
         List<Account> accounts=new ArrayList<>();
         for (Customer customer: customers){
             if (customer.getZipcode()==zipcode){
-                accounts.add();
+                accounts.addAll(customer.getAccounts());
             }
         }
         return accounts;
     }
 
-     */
+
 
 
 

@@ -17,9 +17,18 @@ private double saldo;
 
     }
 
-    public  void  deposit(){
-
+    public  void deposit(double amount){
+        saldo+=amount;
     }
+    public  void withdraw(double amount){
+        if (saldo>=amount){
+            saldo-=amount;
+            System.out.println("Ha retirado "+amount+" € de la cuenta");
+        }else{
+            System.out.println("Saldo insuficiente en la cuenta");
+        }
+    }
+
     public String getIban() {
         return iban;
     }
@@ -40,10 +49,6 @@ private double saldo;
 
     public double getSaldo() {
         return saldo;
-    }
-
-    public  void deposit(double amount){
-        saldo+=amount;
     }
 
     public void setSaldo(double saldo) {
