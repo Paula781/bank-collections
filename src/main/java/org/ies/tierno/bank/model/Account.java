@@ -17,6 +17,9 @@ private double saldo;
 
     }
 
+    public  void  deposit(){
+
+    }
     public String getIban() {
         return iban;
     }

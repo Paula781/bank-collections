@@ -24,19 +24,15 @@ public class Bank {
     en la cuenta. Si no existe la cuenta devuelve null.
      */
 
-    /*public  void addSaldo(String iban, double amount) {
-        Account account=findAccount(iban);
-        if (account !=null) {
-            for (var account: )
+    public  void addSaldo(String iban, double amount) {
+        if (accountsByIban.containsKey(iban)){
+            Account account=accountsByIban.get(iban);
+            account.setSaldo(account.getSaldo()+amount);
+        }else{
+            System.out.println("No existe la cuenta "+iban);
         }
     }
 
-    public  Account findAccount(String iban){
-        for (var account: accountsByIban){
-            if ()
-        }
-    }
-    */
 
 
 
