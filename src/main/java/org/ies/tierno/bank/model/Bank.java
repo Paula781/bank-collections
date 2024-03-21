@@ -89,10 +89,6 @@ public class Bank {
         return accounts;
     }
 
-
-
-
-
     public String getName() {
         return name;
     }
