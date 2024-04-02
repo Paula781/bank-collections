@@ -17,8 +17,6 @@ public class Bank {
     }
 
 
-
-
 /*
     Dado un iban y una cantidad, ingresar la cantidad
     en la cuenta. Si no existe la cuenta devuelve null.
@@ -41,28 +39,30 @@ public class Bank {
 
     public  List<Account>getAccountsByNif(String nif){
         List<Account> accountsnif=new ArrayList<>();
-        for (Customer customer: customers){
-            if (customer.getNif().equals(nif)){
-                return accountsnif;
+        for (var account: accountsByIban.values()){
+            if (account.getNif().equals(nif)){
+                 accountsnif.add(account);
             }
         }
         return  null;
     }
 
+
+
     /*
     Dado un iban y una cantidad, sacar la cantidad en la cuenta.
      */
-
-
 
     public void takeCuantity(String iban, double amount){
         if (accountsByIban.containsKey(iban)){
             Account account=accountsByIban.get(iban);
             account.withdraw(amount);
         }else{
-            System.out.println("NO existe la cuenta "+iban);
+            System.out.println("No existe la cuenta "+iban);
         }
     }
+
+
 
     /*
     Realizar una transferencia entre dos cuentas de dos clientes.
