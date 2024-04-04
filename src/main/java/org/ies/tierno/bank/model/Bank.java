@@ -1,9 +1,6 @@
 package org.ies.tierno.bank.model;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Bank {
     private String name;
@@ -69,7 +66,33 @@ public class Bank {
      */
 
 
+    public  boolean transfer(String from, String to, double amount){
+        if (!accountsByIban.containsKey(from)){
+            System.out.println("No existe la cuenta de origen");
+            return  false;
+        } else if (!accountsByIban.containsKey(to)) {
+            System.out.println("No existe la cuenta de destino");
+            return false;
+        }else{
+            var fromAccount= accountsByIban.get(from);
+            if (fromAccount.withdraw(amount)){
+                var toAccount= accountsByIban.get(to);
+                toAccount.deposit(amount);
+                return true;
+            }
+        }
+        return  false;
+    }
 
+    public boolean withdraw(String iban, double amount) {
+        if (accountsByIban.containsKey(iban)) {
+            var account = accountsByIban.get(iban);
+            return account.withdraw(amount);
+        } else {
+            System.out.println("No existe la cuenta con iban " + iban);
+            return false;
+        }
+    }
 
 
 
@@ -79,13 +102,21 @@ public class Bank {
     vive en ese código postal
      */
 
-    //No me gusta, mirar si puedo hacerlo de otra forma :)
+    // Primero obtenemos los nif de los clientes cuyo codigo postal es el que buscamos
 
     public List<Account> findAccountsByZipcode(int zipcode){
-        List<Account> accounts=new ArrayList<>();
-        for (Customer customer: customers){
+        Set<String> nifs= new HashSet<>();
+        for (var customer: customers){
             if (customer.getZipcode()==zipcode){
-                accounts.addAll(customer.getAccounts());
+                nifs.add(customer.getNif());
+            }
+        }
+        List<Account> accounts = new ArrayList<>();
+        for(var account: accountsByIban.values()) {
+            // Si el nif de la cuenta es uno de los que estamos buscando
+            if(nifs.contains(account.getNif())) {
+                // Añadimos la cuenta al resultado
+                accounts.add(account);
             }
         }
         return accounts;

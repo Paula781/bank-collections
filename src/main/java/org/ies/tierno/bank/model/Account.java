@@ -20,12 +20,13 @@ private double saldo;
     public  void deposit(double amount){
         saldo+=amount;
     }
-    public  void withdraw(double amount){
-        if (saldo>=amount){
-            saldo-=amount;
-            System.out.println("Ha retirado "+amount+" € de la cuenta");
-        }else{
-            System.out.println("Saldo insuficiente en la cuenta");
+    public boolean withdraw(double amount) {
+        if(saldo>= amount) {
+            saldo -= amount;
+            return true;
+        }  else{
+            System.out.println("No hay suficiente saldo");
+            return false;
         }
     }
 
